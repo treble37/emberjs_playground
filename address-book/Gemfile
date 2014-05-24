@@ -32,8 +32,11 @@ end
 gem 'ember-rails'
 gem 'ember-source', '1.5.0'
 
-
-
+group :test, :development do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+end
 
 
 

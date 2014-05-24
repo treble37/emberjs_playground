@@ -32,13 +32,14 @@ end
 gem 'ember-rails'
 gem 'ember-source', '1.5.0'
 
-group :test, :development do
+group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+  gem 'guard-teaspoon', '0.0.4'
+  gem 'teaspoon', '0.7.9'
 end
-
-
 
 
 # Use ActiveModel has_secure_password

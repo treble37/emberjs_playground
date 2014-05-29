@@ -37,8 +37,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
-  gem 'guard-teaspoon', '0.0.4'
-  gem 'teaspoon', '0.7.9'
+  gem 'guard-teaspoon', '~>0.0.4'
+  gem 'teaspoon', '~>0.8.0'
 end
 
 

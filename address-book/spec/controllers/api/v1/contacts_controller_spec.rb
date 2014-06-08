@@ -8,5 +8,10 @@ describe Api::V1::ContactsController do
       assigns(:contacts).length.should == 2
       assigns(:contacts)[0].class.should == Contact
     end
+    it 'show' do
+      @contact = FactoryGirl.create(:contact)
+      get :show, id: @contact.id
+      assigns(:contact).first_name.should == 'MyString'
+    end
   end
 end

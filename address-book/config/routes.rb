@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   
   root to: 'assets#index'
   get 'assets/index'
+  namespace :api do
+    namespace :v1 do
+      resources :contacts
+    end
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

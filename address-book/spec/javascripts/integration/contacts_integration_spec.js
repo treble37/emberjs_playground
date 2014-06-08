@@ -2,7 +2,6 @@ module('Contacts integration', {
   setup: function () {
   },
   teardown: function () {
-    AddressBook.reset();
   }
 });
 

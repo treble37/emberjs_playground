@@ -1,7 +1,6 @@
 module('Contacts Model', {
   setup: function () {},
   teardown: function () {
-    AddressBook.reset();
   }
 });
 

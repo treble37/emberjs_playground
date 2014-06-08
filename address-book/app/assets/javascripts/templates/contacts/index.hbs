@@ -2,6 +2,6 @@
 
 <ul class="contacts_list">
   {{#each}}
-  <li>First Name: {{first_name}}</li>
+  <li>{{#link-to 'contacts.show' this}}{{first_name}}{{/link-to}}</li>
   {{/each}}
 </ul>

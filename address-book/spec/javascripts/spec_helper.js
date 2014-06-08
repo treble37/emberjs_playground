@@ -50,3 +50,7 @@ AddressBook.injectTestHelpers();
         last_name: 'Hoffman'
       }
     ];
+
+QUnit.testStart = function () {
+  AddressBook.reset();
+};

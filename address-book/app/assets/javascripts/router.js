@@ -2,5 +2,6 @@
 
 AddressBook.Router.map(function() {
   this.resource('contacts', function() {
+    this.route('show', {path: '/:contact_id'});
   });
 });

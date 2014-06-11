@@ -38,3 +38,26 @@ test('Visiting a contact via the index screen', function () {
     equal(contact, expected_result, 'Expected: ' + expected_result + ' got: ' + contact);
   });
 });
+
+test('Show input for new contact', function () {
+  visit('/contacts').click('#add_new_contact');
+    andThen(function () {
+      var first_name_field = find('#new_first_name').length;
+      var last_name_field = find('#new_last_name').length;
+      ok(first_name_field == 1, 'First name field not found');
+      ok(last_name_field == 1, 'Last name field not found');
+  });
+});
+
+test('Adding a new contact', function () {
+  visit('/contacts').click('#add_new_contact');
+  fillIn('#new_first_name', 'Buzz');
+  fillIn('#new_last_name', 'Lightyear');
+  click('#save_new_contact');
+  andThen(function () {
+    var first_name = find('.contacts_list:contains("Buzz")').length;
+    ok(first_name == 1, "First name was not saved");
+    var add_new_contact_button = find('#add_new_contact').length;
+    ok(add_new_contact_button == 1, "Have not transitioned back to original state");
+  });
+});

@@ -14,4 +14,10 @@ describe Api::V1::ContactsController do
       assigns(:contact).first_name.should == 'MyString'
     end
   end
+  describe 'POST methods' do
+    it 'creates a new contact' do
+      @contact = FactoryGirl.attributes_for(:contact)
+      expect{post :create, contact: @contact}.to change(Contact, :count).by(1)
+    end
+  end
 end

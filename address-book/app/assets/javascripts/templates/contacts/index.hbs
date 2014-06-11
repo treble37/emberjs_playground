@@ -7,8 +7,7 @@
 {{input type='text' value=controller.new_last_name id='new_last_name'}}
 <button id="save_new_contact" {{action 'saveNewContact'}} >Save new contact</button>
 {{else}}
-<button id="add_new_contact" {{action 'addNewContact'}} >Add new contact</but\
-ton>
+<button id="add_new_contact" {{action 'addNewContact'}} >Add new contact</button>
 {{/if}}
 <ul class="contacts_list">
   {{#each}}

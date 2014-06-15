@@ -2,6 +2,7 @@ module('Contacts integration', {
   setup: function () {
   },
   teardown: function () {
+    resetFixtures();
   }
 });
 
@@ -59,5 +60,26 @@ test('Adding a new contact', function () {
     ok(first_name == 1, "First name was not saved");
     var add_new_contact_button = find('#add_new_contact').length;
     ok(add_new_contact_button == 1, "Have not transitioned back to original state");
+  });
+});
+
+test('Cancelling creation of new contact', function () {
+  visit('/contacts').click('#add_new_contact');
+    andThen(function () {
+      var first_name_field = find('#new_first_name').length;
+      ok(first_name_field == 1, 'First name field not found');
+      click('#cancel_new_contact');
+      andThen(function () {
+      var add_new_contact_button = find('#add_new_contact').length;
+      ok(add_new_contact_button == 1, "Have not transitioned back to original state");
+    });
+  });
+});
+
+test('Deleting a contact', function () {
+  visit('/contacts').click('.contacts_list li:first .delete_button');
+    andThen(function () {
+    var contacts = find('ul li').length;
+    ok(contacts == 1, "Exepcted 1 contact got: " + contacts);
   });
 });

@@ -20,4 +20,11 @@ describe Api::V1::ContactsController do
       expect{post :create, contact: @contact}.to change(Contact, :count).by(1)
     end
   end
+
+  describe 'DELETE method' do
+    it 'deletes a contact' do
+      @contact = FactoryGirl.create(:contact)
+      expect{delete :destroy, id: @contact.id}.to change(Contact, :count).by(-1)
+    end
+  end
 end

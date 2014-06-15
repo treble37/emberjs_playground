@@ -20,6 +20,15 @@ actions: {
         },
         function () { alert('Unable to save record'); });
       );
+    },
+
+    cancelNewContact: function () {
+      this.set('new_first_name', '');
+      this.set('new_last_name', '');
+      this.toggleProperty('addingNewContact');
+    },
+    deleteContact: function (contact) {
+      contact.destroyRecord();
     }
 
   }

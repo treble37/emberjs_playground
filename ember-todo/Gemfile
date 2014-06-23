@@ -46,6 +46,9 @@ group :development, :test do
   gem 'childprocess'
   gem 'pry'
   gem 'spring-commands-rspec'
+  gem 'guard-teaspoon'
+  gem 'spring-commands-teaspoon'
+  gem 'teaspoon' 
 end
  
 group :test do

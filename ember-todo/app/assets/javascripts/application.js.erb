@@ -7,9 +7,11 @@
 
 <% if Rails.env.development? %>
   Ember.LOG_TRANSITIONS = true;
+  Ember.LOG_TRANSITIONS_INTERNAL = true;
+  Ember.LOG_VIEW_LOOKUPS = true;
 <% end %>
 
 // for more details see: http://emberjs.com/guides/application/
-EmberTodo = Ember.Application.create();
+window.EmberTodo = Ember.Application.create();
 
 //= require_tree .

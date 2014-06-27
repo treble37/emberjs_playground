@@ -2,4 +2,7 @@
 
 EmberTodo.Router.map(function() {
   // this.resource('posts');
+  this.resource('todo', {
+    path: '/todos/:todo_id'
+  });
 });

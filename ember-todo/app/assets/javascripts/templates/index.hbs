@@ -1,5 +1,6 @@
 <h1>Todos</h1>
 
-{{#each Todos}}
-  <h2>{{description}}</h2>
+{{#each}}
+  <h2>{{#link-to 'todo' this}}{{title}}{{/link-to}}</h2>
+  {{text}}
 {{/each}}

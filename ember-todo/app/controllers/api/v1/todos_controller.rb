@@ -1,10 +1,11 @@
 class Api::V1::TodosController < ApplicationController
-  respond_to :json
+  respond_to :json, :html
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   # GET /todos
   def index
-    respond_with Todo.all
+    @todos = Todo.all
+    respond_with @todos
   end
 
   # GET /todos/1

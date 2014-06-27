@@ -1,5 +1,4 @@
-Emberblah.Todo = Ember.Object.extend
-
+Emberblah.Todo = Ember.Object.extend({})
 
 Emberblah.Todo.reopenClass
   findAll: ->

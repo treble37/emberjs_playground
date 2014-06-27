@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root :to => "todos#index"
-  resources :todos 
+  resources :todos
   namespace :api do
     namespace :v1 do
       resources :todos

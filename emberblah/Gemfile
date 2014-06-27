@@ -29,7 +29,7 @@ gem 'rabl'
 gem 'ember-rails'
 gem 'ember-source', '1.5.1.1'
 gem 'pry'
-
+gem 'sextant'
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password

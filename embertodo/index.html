@@ -27,14 +27,46 @@
 
             <div class="list-group" style="margin-top: 10px;">
                 {{#each controller}}
-                    <div class="list-group-item">
+                    {{#linkTo "todos.todo" this class="list-group-item"}}
                         {{name}}
-                    </div>
+                        <button class="btn btn-danger btn-xs pull-right" {{action "doDeleteTodo" this}}>Delete</button>
+                    {{/linkTo}}
                 {{/each}}
             </div>
         </div>
+
+        {{outlet}}
+
+        {{partial confirmDialog}}
     </script>
 
+     <script type="text/x-handlebars" id="todos/todo">
+        <div id="selectedTodo">
+            <h1>name: {{name}}</h1>
+            {{view Ember.TextArea valueBinding="value"}}
+            <button class="btn btn-primary form-control mediumTopPadding"
+            {{action "updateTodo"}}>Update</button><br />
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="confirmDialog">
+        <div id="confirmDeleteTodoDialog" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header centerAlign">
+                        <h1 class="centerAlign">Delete selected todo?</h1>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the selected todo? This action cannot be be undone!
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" {{action "doCancelDelete"}}>Cancel</button>
+                        <button class="btn btn-primary" {{action "doConfirmDelete"}}>Delete Todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
    
 </head>
 <body>

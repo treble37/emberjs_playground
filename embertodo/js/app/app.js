@@ -32,7 +32,8 @@ Todos.Store = DS.Store.extend({
 
 
 Todos.TodosController = Ember.ArrayController.extend({
-    newNoteName: null,
+    needs: ['todosTodo'],
+    newTodoName: null,
 
     actions: {
         createNewTodo: function() {
@@ -58,6 +59,41 @@ Todos.TodosController = Ember.ArrayController.extend({
             }
         },
 
-        
+        doDeleteTodo: function (todo) {
+            this.set('todoForDeletion', todo);
+            $("#confirmDeleteTodoDialog").modal({"show": true});
+        },
+
+        doCancelDelete: function () {
+            this.set('todoForDeletion', null);
+            $("#confirmDeleteTodoDialog").modal('hide');
+        },
+
+        doConfirmDelete: function () {
+            var selectedTodo = this.get('todoForDeletion');
+            this.set('todoForDeletion', null);
+            if (selectedTodo) {
+                this.store.deleteRecord(selectedTodo);
+                selectedTodo.save();
+
+                if (this.get('controllers.todosTodo.model.id') === selectedTodo.get('id')) {
+                    this.transitionToRoute('todos');
+                }
+            }
+            $("#confirmDeleteTodoDialog").modal('hide');
+        }
+
+    }
+});
+
+Todos.TodosTodoController = Ember.ObjectController.extend({
+    actions: {
+        updateTodo: function() {
+            var content = this.get('content');
+            console.log(content);
+            if (content) {
+                content.save();
+            }
+        }
     }
 });

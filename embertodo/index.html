@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="author" content="Bruce Park">
+
+    <title>Ember.js - Todo</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" charset="utf-8">
+
+    <script src="js/scripts/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/handlebars-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/ember-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/ember-data-beta-1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/scripts/ember-data-localstorage.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/app/app.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/x-handlebars" id="application">
+        {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="todos">
+        <div id="todos" class="azureBlueBackground azureBlueBorderThin">
+            {{input valueBinding="newTodoName"}}
+            <button class="btn btn-default btn-xs" {{action "createNewTodo"}}>New Todo</button>
+
+            <div class="list-group" style="margin-top: 10px;">
+                {{#each controller}}
+                    <div class="list-group-item">
+                        {{name}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </script>
+
+   
+</head>
+<body>
+
+</body>
+</html>

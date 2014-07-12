@@ -34,6 +34,7 @@ Todos.Store = DS.Store.extend({
 Todos.TodosController = Ember.ArrayController.extend({
     needs: ['todosTodo'],
     newTodoName: null,
+    selectedTodoBinding: 'controllers.todosTodo.model',
 
     actions: {
         createNewTodo: function() {

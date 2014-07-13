@@ -42,10 +42,12 @@
 
      <script type="text/x-handlebars" id="todos/todo">
         <div id="selectedTodo">
-            <h1>name: {{name}}</h1>
+          {{#if model}}
+            <h1>name: {{controller.model.name}}</h1>
             {{view Ember.TextArea valueBinding="value"}}
             <button class="btn btn-primary form-control mediumTopPadding"
             {{action "updateTodo"}}>Update</button><br />
+          {{/if}}
         </div>
     </script>
 
